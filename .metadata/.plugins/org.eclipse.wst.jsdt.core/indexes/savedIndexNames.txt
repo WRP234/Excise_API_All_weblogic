@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+C:\Users\Best\OneDrive\เอกสาร\GitHub\Excise_API_All_weblogic\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2322803654.index
