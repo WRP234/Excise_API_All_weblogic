@@ -122,27 +122,20 @@ public class NoticeExt {
     protected List<NoticeLocale> getNoticeLocale(int NOTICE_ID) {
 
         StringBuilder sqlBuilder = new StringBuilder()
-                .append("select " +
-                        "LOCALE_ID," +
-                        "NOTICE_ID," +
-                        "SUB_DISTRICT_ID," +
-                        "GPS," +
-                        "ADDRESS_NO," +
-                        "VILLAGE_NO," +
-                        "BUILDING_NAME," +
-                        "ROOM_NO," +
-                        "FLOOR," +
-                        "VILLAGE_NAME," +
-                        "ALLEY," +
-                        "LANE," +
-                        "ROAD," +
-                        "ADDRESS_TYPE," +
-                        "ADDRESS_STATUS," +
-                        "POLICE_STATION," +
-                        "LOCATION," +
-                        "IS_ACTIVE " +
-                        " from OPS_NOTICE_LOCALE  where IS_ACTIVE = 1 ");
-        sqlBuilder.append("and NOTICE_ID = '" + NOTICE_ID + "'");
+        	    .append("select " +
+			    		"OPS_NOTICE_LOCALE.*," +
+			    		"MAS_SUB_DISTRICT.SUB_DISTRICT_NAME_TH," +
+			    		"MAS_SUB_DISTRICT.SUB_DISTRICT_NAME_EN," +
+			    		"MAS_DISTRICT.DISTRICT_NAME_TH," +
+			    		"MAS_DISTRICT.DISTRICT_NAME_EN," +
+			    		"MAS_PROVINCE.PROVINCE_NAME_TH," +
+			    		"MAS_PROVINCE.PROVINCE_NAME_EN" +
+			    		" from OPS_NOTICE_LOCALE" +
+			    		" INNER JOIN MAS_SUB_DISTRICT ON OPS_NOTICE_LOCALE.SUB_DISTRICT_ID = MAS_SUB_DISTRICT.SUB_DISTRICT_ID" +
+			    		" INNER JOIN MAS_DISTRICT ON MAS_SUB_DISTRICT.DISTRICT_ID = MAS_DISTRICT.DISTRICT_ID" +
+			    		" INNER JOIN MAS_PROVINCE ON MAS_DISTRICT.PROVINCE_ID = MAS_PROVINCE.PROVINCE_ID" +
+			    		" where OPS_NOTICE_LOCALE.IS_ACTIVE = 1 and OPS_NOTICE_LOCALE.NOTICE_ID = '"+NOTICE_ID+"'");
+				sqlBuilder.append("and NOTICE_ID = '"+NOTICE_ID+"'");
 
         log.info("[SQL]  : " + sqlBuilder.toString());
 
@@ -169,6 +162,12 @@ public class NoticeExt {
                 item.setPOLICE_STATION(rs.getString("POLICE_STATION"));
                 item.setLOCATION(rs.getString("LOCATION"));
                 item.setIS_ACTIVE(rs.getInt("IS_ACTIVE"));
+				item.setSUB_DISTRICT_NAME_TH(rs.getString("SUB_DISTRICT_NAME_TH"));
+				item.setSUB_DISTRICT_NAME_EN(rs.getString("SUB_DISTRICT_NAME_EN"));
+				item.setDISTRICT_NAME_TH(rs.getString("DISTRICT_NAME_TH"));
+				item.setDISTRICT_NAME_EN(rs.getString("DISTRICT_NAME_EN"));
+				item.setPROVINCE_NAME_TH(rs.getString("PROVINCE_NAME_TH"));
+				item.setPROVINCE_NAME_EN(rs.getString("PROVINCE_NAME_EN"));
 
                 return item;
             }

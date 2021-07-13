@@ -242,7 +242,6 @@ public class ArrestExt {
 				item.setPROVINCE_NAME_TH(rs.getString("PROVINCE_NAME_TH"));
 				item.setPROVINCE_NAME_EN(rs.getString("PROVINCE_NAME_EN"));
 
-
 				return item;
 			}
 		});

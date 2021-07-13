@@ -1,1 +1,6 @@
 2564-07-06 10:09:18.009  WARN 4724 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2564-07-06 16:21:57.602  WARN 21912 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2564-07-06 16:29:47.424 ERROR 21912 --- [http-nio-7003-exec-4] c.xcs.phase2.logging.HttpLoggingFilter   : null
+2564-07-06 16:35:05.767 ERROR 21912 --- [http-nio-7003-exec-2] c.xcs.phase2.logging.HttpLoggingFilter   : null
+2564-07-06 16:38:59.134 ERROR 21912 --- [http-nio-7003-exec-9] c.xcs.phase2.logging.HttpLoggingFilter   : null
+2564-07-06 16:38:59.707 ERROR 21912 --- [http-nio-7003-exec-1] c.xcs.phase2.logging.HttpLoggingFilter   : null
